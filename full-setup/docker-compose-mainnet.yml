@@ -38,5 +38,15 @@ services:
     environment:
       - NODE_ENV=production
 
+  public-pool-ui:
+    container_name: public-pool-ui
+    image: public-pool-ui:latest
+    pull_policy: never
+    restart: unless-stopped
+    networks:
+      - bitcoin
+    ports:
+      - "0.0.0.0:8080:80/tcp"
+
 networks:
   bitcoin:
